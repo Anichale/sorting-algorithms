@@ -18,6 +18,11 @@ end procedure
 ```
 This process is done by making a do while loop, where the condition will exit if the array is sorted. Then we  iterate over the array, and compare each element to the next one. If the element is lighter, then you swap their positions in the array, repeat until you hit the end of the array while always setting a conditional value to true. If you loop through the array, and the conditional value is never set, meaning there are no swaps, then you exit out of the array.
 
+### Best Case
+Linearly increases time spent to sort with size of array. O(n)
+
+### Worst Case
+Exponentially increases time spent to sort. O(n^2)
 
 ## merge sort
 
@@ -52,6 +57,9 @@ procedure merge (left, right)
 ```
 If the list is 0 or 1 length, then its already sorted and we can return the array. Else, we have to find the mid point of the aray, then split it into a left and right array. Our second piece of logic takes in a left and right array, which returns a merged array. If both left and right arrays have a length, then we compare the first value of both, and push the lower value to the return array. Our first procedure utilizes recursion to get the smallest available arrays.
 
+### Best & Worst Case
+Logarithimically and linearlly increases time spent to sort with size array. It's more efficient the larger the size of the array, not great for small arrays. O(n log(n))
+
 ## insertion sort
 For each iteration in our insertion sort method, a single element is taken to find its location in a new sorted list. This pattern repeats until the old array has no elements left.
 
@@ -64,3 +72,71 @@ for i = 1 to A.length - 1
 ```
 
 First, we have to iterate over our array, then we set a variable to our position in the array, j. While j has a length, we compare our values between our position and the next position in the array. If the next position is bigger, then we swap the two, and decrement j by 1;
+
+### Best Case
+Linerally increases time with size. O(n)
+
+### Worst Case
+Exponentially increases time with size. O(n^2)
+
+## selection sort
+Searches the array to find the smallest value, then loops again to find the next smallest value. Assuming minimum is the first element, we compare our minimums then swap it with the position it should be in from the beginning.
+
+```
+for i = 0 to A.length - 1
+
+    min = i;
+
+    for j = i + 1 to A.length
+
+      if A[j] < A[min]
+
+        min = j
+
+    if min != i
+      swap A[i] and A[min]
+```
+We loop through our array, and set our min position variable to our first positon. We then loop again through the array with our variable j, and check if our position is our new minimum. If it is, then we set our min position to j. If min is not i, then we swap our new minimum with our current position.
+
+### Best & Worst Case
+Exponentially increases time with size. O(n^2)
+
+## quicksort
+Otherwise known as partition-exchange sort, quicksort picks a pivot from the array, then reorders the array with values lower than the pivot before the pivot, and higher values after the pivot. After this is done, pivot belongs in this position, and we recursively apply the same steps to the other partitions.
+
+```
+quicksort(A, lo, hi)
+
+if lo < hi
+  p = partition(A, lo, hi)
+  quicksort(A, lo, p)
+  quicksort(A, p + 1, hi)
+
+partition(A, lo, hi)
+  pivot = A.length / 2
+  i = lo;
+  j = hi
+
+  while i <= j
+    while A[i] < pivot
+      i++
+    while A[j] > pivot
+      j++
+
+    if i <= j
+      swap A[i] and A[j]
+      i++
+      j--
+
+  return i
+```
+First we determine a pivot and loop through our array, if the value at our position is less than or equal to our pivot, then swap our position of i in the array to our position of j.
+Return j. We recursively do this until we have no more partitions.
+
+### Best Case
+
+Logarithimically and linearlly increases time spent to sort with size array. It's more efficient the larger the size of the array, not great for small arrays. O(n log(n))
+
+### Worst Case
+
+Exponentially increase the time spent to sort with size array.
