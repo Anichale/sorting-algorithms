@@ -32,7 +32,6 @@ procedure mergeSort ( A : list )
     right = A.slice middle, A.length
 
     return merge(mergeSort(left), mergeSort(right);
-end procedure
 
 procedure merge (left, right)
     result = []
@@ -50,5 +49,18 @@ procedure merge (left, right)
         push right
 
     return result
-end procedure
 ```
+If the list is 0 or 1 length, then its already sorted and we can return the array. Else, we have to find the mid point of the aray, then split it into a left and right array. Our second piece of logic takes in a left and right array, which returns a merged array. If both left and right arrays have a length, then we compare the first value of both, and push the lower value to the return array. Our first procedure utilizes recursion to get the smallest available arrays.
+
+## insertion sort
+For each iteration in our insertion sort method, a single element is taken to find its location in a new sorted list. This pattern repeats until the old array has no elements left.
+
+```
+for i = 1 to A.length - 1
+    j = i
+    while j > 0 and A[j-1] > A[j]
+        swap A[j-1] and A[j]
+        j = j - 1
+```
+
+First, we have to iterate over our array, then we set a variable to our position in the array, j. While j has a length, we compare our values between our position and the next position in the array. If the next position is bigger, then we swap the two, and decrement j by 1;
