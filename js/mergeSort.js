@@ -55,5 +55,3 @@ function mergeSort (array) {
   //it hits our base case and the array is split into lengths less than 2
   return merge(mergeSort(pLeft), mergeSort(pRight));
 }
-
-module.exports = mergeSort;
