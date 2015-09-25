@@ -2,14 +2,20 @@
 <html>
   <head>
     <title>Sorting Algorithms</title>
+      <link href="https://cdn.rawgit.com/mochajs/mocha/2.2.5/mocha.css" rel="stylesheet"/>
   </head>
   <body>
+    <div id="mocha"></div>
 
-  <script src="/node_modules/mocha/mocha.js"></script>
-  <script src="/node_modules/chai/chai.js"></script>
-  <script type="text/javascript">mocha.setup('bdd');</script>
-  <script src="/tests/sorting-alogrithms-tests.js"></script>
-  <script src="/js/sorting-tests.js"></script>
-  <script type="text/javascript">mocha.run();</script>
+    <script src="/node_modules/mocha/mocha.js"></script>
+    <script src="/node_modules/chai/chai.js"></script>
+    <script type="text/javascript">mocha.setup('bdd');</script>
+    <script src="/tests/sorting-alogrithms-tests.js"></script>
+    <script src="/js/bubbleSort.js"></script>
+    <script src="/js/insertion.js"></script>
+    <script src="/js/mergeSort.js"></script>
+    <script src="/js/quickSort.js"></script>
+    <script src="/js/selection.js"></script>
+    <script type="text/javascript">mocha.run();</script>
   </body>
 </html>
