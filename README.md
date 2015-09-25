@@ -105,30 +105,38 @@ Exponentially increases time with size. O(n^2)
 Otherwise known as partition-exchange sort, quicksort picks a pivot from the array, then reorders the array with values lower than the pivot before the pivot, and higher values after the pivot. After this is done, pivot belongs in this position, and we recursively apply the same steps to the other partitions.
 
 ```
-quicksort(A, lo, hi)
+quicksort(A, left, right)
 
-if lo < hi
-  p = partition(A, lo, hi)
-  quicksort(A, lo, p)
-  quicksort(A, p + 1, hi)
+  pivot = null
 
-partition(A, lo, hi)
-  pivot = A.length / 2
-  i = lo;
-  j = hi
+  if left does not exist
+    left = 0
 
-  while i <= j
-    while A[i] < pivot
-      i++
-    while A[j] > pivot
-      j++
+  if right does not exist
+    right = A.length - 1
 
-    if i <= j
-      swap A[i] and A[j]
-      i++
-      j--
+  if left < right
+    pivot = position between left and right
+    newPart = partition(A, pivot, left, right)
+    quicksort(A, left, newPart - 1)
+    quicksort(A, newPart + 1, right)
 
-  return i
+partition(A, pivot, left, right)
+
+  pivotValue = A[pivot]
+  index = left
+
+  swap pivot and right
+
+  for i = left i <= right i++
+
+    if A[i] < pivotValue
+      swap i and index
+      index++
+
+  swap right and index
+
+  return index
 ```
 First we determine a pivot and loop through our array, if the value at our position is less than or equal to our pivot, then swap our position of i in the array to our position of j.
 Return j. We recursively do this until we have no more partitions.
