@@ -48,4 +48,4 @@ Sort.Selection = (function() {
 
   return selectionSort;
 
-}());
+})();

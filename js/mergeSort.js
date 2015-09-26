@@ -66,4 +66,4 @@ Sort.merge = (function() {
 
   return mergeSort;
 
-}());
+})();

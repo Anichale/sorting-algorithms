@@ -40,7 +40,7 @@ Sort.quick = (function() {
     if (low < high) {
 
       //create a point between our low and high values
-      pivot = low + (Math.floor((high - low) * 0.5));
+      pivot = low + (Math.ceil((high - low) * 0.5));
 
       //create the positions and partitions to be recursively sorted
       nextPivot = partition(array, pivot, low, high);
@@ -92,4 +92,4 @@ Sort.quick = (function() {
 
   return quickSort;
 
-}());
+})();
