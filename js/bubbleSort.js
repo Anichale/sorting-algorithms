@@ -1,44 +1,58 @@
-function bubbleSort (array) {
+//namespace
+var Sort = window.Sort || {};
 
-  //create variables for swapping and our while loop condition
-  var swapped;
-  var prev;
+Sort.bubble = (function() {
 
-  do {
+  /* Bubble sort works in a nature similar to its name, the lesser - or lighter - values
+  *  will 'bubble' to the beginning of the array, and the heavier values will 'sink'
+  *  to the bottom.
+  */
+  function bubbleSort (array) {
 
-    //initilize our loop variable to false, so we can exit our loop
-    //if our array is sorted
-    swapped = false;
+    //create variables for swapping and our while loop condition
+    var swapped;
+    var prev;
 
-    //loop through our array
-    for (var i = 0; i < array.length; i++) {
+    do {
 
-      //at each position, compare this element with the previous
-      //if this one is greater than our previous one swap it and
-      //flag our conditional to loop through our array again
-      if (array[i - 1] > array[i]) {
+      //initilize our loop variable to false, so we can exit our loop
+      //if our array is sorted
+      swapped = false;
 
-        //store the prev variable to our previous element
-        prev = array[i - 1];
+      //loop through our array
+      for (var i = 0; i < array.length; i++) {
 
-        //set our previous element to this element
-        array[i - 1] = array[i];
+        //at each position, compare this element with the previous
+        //if this one is greater than our previous one swap it and
+        //flag our conditional to loop through our array again
+        if (array[i - 1] > array[i]) {
 
-        //set this element to our prev variable
-        array[i] = prev;
+          //store the prev variable to our previous element
+          prev = array[i - 1];
 
-        //flag our conditional to continue looping
-        swapped = true;
+          //set our previous element to this element
+          array[i - 1] = array[i];
+
+          //set this element to our prev variable
+          array[i] = prev;
+
+          //flag our conditional to continue looping
+          swapped = true;
+        }
+
+        //if we go through the entire loop and our swapped conditional is never
+        //flagged then swapped is still false
       }
 
-      //if we go through the entire loop and our swapped conditional is never
-      //flagged then swapped is still false
-    }
+      //and we can exit our do while loop
+    } while (swapped === true);
 
-    //and we can exit our do while loop
-  } while (swapped === true);
+    //return our sorted array
+    return array;
+  }
 
-  //return our sorted array
-  return array;
+  return {
+    bubbleSort : bubbleSort
+  };
 
-}
+}());

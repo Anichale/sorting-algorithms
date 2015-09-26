@@ -1,57 +1,71 @@
-function mergeSort (array) {
+//namespace
+var Sort = window.Sort || {};
 
-  //if the array is length 0 or 1, then we can assume it is already
-  //sorted and return it (works as base case for later recursion)
-  if (array.length < 2) {
-    return array;
-  }
+Sort.merge = (function() {
 
-  //pick a pivot at our the middle of our array
-  var pivot = (Math.floor(array.length / 2));
+  /*  Merge sort utilizes two functions, the first splitting the array into smaller
+  *   arrays, and the second merges values by comparing.
+  */
+  function mergeSort (array) {
 
-  //separate the array into two places, everything before it
-  var pLeft = array.slice(0, pivot);
+    //if the array is length 0 or 1, then we can assume it is already
+    //sorted and return it (works as base case for later recursion)
+    if (array.length < 2) {
+      return array;
+    }
 
-  //and everything after
-  var pRight = array.slice(pivot, array.length);
+    //pick a pivot at our the middle of our array
+    var pivot = (Math.floor(array.length / 2));
 
-  //used to merge all of our pieces back together after recursively separating the array
-  function merge (left, right) {
+    //separate the array into two places, everything before it
+    var pLeft = array.slice(0, pivot);
 
-    //initialize array to return
-    var result = [];
+    //and everything after
+    var pRight = array.slice(pivot, array.length);
 
-    //if both of our split arrays have items inside go through this while loop
-    while (left.length > 0 && right.length > 0) {
+    //used to merge all of our pieces back together after recursively separating the array
+    function merge (left, right) {
 
-      //compare the first element of each array
-      if (left[0] <= right[0]) {
+      //initialize array to return
+      var result = [];
 
-        //if the left array has a smaller element, push it to result
-        //and use the shift method to remove it from our left array
+      //if both of our split arrays have items inside go through this while loop
+      while (left.length > 0 && right.length > 0) {
+
+        //compare the first element of each array
+        if (left[0] <= right[0]) {
+
+          //if the left array has a smaller element, push it to result
+          //and use the shift method to remove it from our left array
+          result.push(left.shift());
+        } else {
+
+          //do the same if the right element is smaller
+          result.push(right.shift());
+        }
+      }
+
+      //if only our left array has an element left, push that
+      while (left.length > 0) {
         result.push(left.shift());
-      } else {
+      }
 
-        //do the same if the right element is smaller
+      //if only our right array has an element left, push that
+      while (right.length > 0) {
         result.push(right.shift());
       }
+
+      //return the sorted array
+      return result;
     }
 
-    //if only our left array has an element left, push that
-    while (left.length > 0) {
-      result.push(left.shift());
-    }
-
-    //if only our right array has an element left, push that
-    while (right.length > 0) {
-      result.push(right.shift());
-    }
-
-    //return the sorted array
-    return result;
+    //call our mergeSort recursively on this array, splitting it further and further until
+    //it hits our base case and the array is split into lengths less than 2
+    return merge(mergeSort(pLeft), mergeSort(pRight));
   }
 
-  //call our mergeSort recursively on this array, splitting it further and further until
-  //it hits our base case and the array is split into lengths less than 2
-  return merge(mergeSort(pLeft), mergeSort(pRight));
-}
+  return {
+    mergeSort : mergeSort
+  };
+
+}());

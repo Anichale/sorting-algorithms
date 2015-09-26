@@ -1,33 +1,47 @@
-function insertionSort (array) {
+//namespace
+var Sort = window.Sort || {};
 
-  //initialize a variable to identify the number currently being compared
-  var value;
+Sort.insertion = (function() {
 
-  //loop through our  array
-  for (var i = 0; i < array.length; i++) {
+  /*  Insertion identifies a number to compare, then shits our array until we find
+  *   a space for our value to be inserted to.
+  */
+  function insertionSort (array) {
 
-    //indentify our number to be compared
-    value = array[i];
+    //initialize a variable to identify the number currently being compared
+    var value;
 
-    //create a variable to compare the previous number
-    var j = i - 1;
+    //loop through our  array
+    for (var i = 0; i < array.length; i++) {
 
-    //while our previous number is greater than 0, and the number we're comparing is less
-    //than our previous number enter our loop
-    while (j > -1 && array[j] > value) {
+      //indentify our number to be compared
+      value = array[i];
 
-      //shift the number down the array and give us a space to insert
-      //our current value
-      array[j + 1] = array[j];
+      //create a variable to compare the previous number
+      var j = i - 1;
 
-      //decrement j to go through our entire array
-      j--;
+      //while our previous number is greater than 0, and the number we're comparing is less
+      //than our previous number enter our loop
+      while (j > -1 && array[j] > value) {
+
+        //shift the number down the array and give us a space to insert
+        //our current value
+        array[j + 1] = array[j];
+
+        //decrement j to go through our entire array
+        j--;
+      }
+
+      //insert our value at the space that has been shifted
+      array[j + 1] = value;
     }
 
-    //insert our value at the space that has been shifted
-    array[j + 1] = value;
+    //return the sorted array
+    return array;
   }
 
-  //return the sorted array
-  return array;
-}
+  return {
+    insertionSort : insertionSort
+  };
+
+}());
