@@ -27,12 +27,12 @@ Sort.quick = (function() {
     var pivot = null;
 
     //used for initialization, begin on the end
-    if (!low) {
+    if (typeof low !== 'number') {
       low = 0;
     }
 
     //used for initialization, begin on the end
-    if (!high) {
+    if (typeof high !== 'number') {
       high = array.length - 1;
     }
 
@@ -40,7 +40,7 @@ Sort.quick = (function() {
     if (low < high) {
 
       //create a point between our low and high values
-      pivot = Math.floor((high + low) / 0.5);
+      pivot = low + (Math.floor((high - low) * 0.5));
 
       //create the positions and partitions to be recursively sorted
       nextPivot = partition(array, pivot, low, high);
@@ -90,8 +90,6 @@ Sort.quick = (function() {
     return array;
   }
 
-  return {
-    quickSort : quickSort
-  };
+  return quickSort;
 
 }());

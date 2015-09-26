@@ -51,8 +51,6 @@ Sort.bubble = (function() {
     return array;
   }
 
-  return {
-    bubbleSort : bubbleSort
-  };
+  return bubbleSort;
 
 }());

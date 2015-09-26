@@ -64,8 +64,6 @@ Sort.merge = (function() {
     return merge(mergeSort(pLeft), mergeSort(pRight));
   }
 
-  return {
-    mergeSort : mergeSort
-  };
+  return mergeSort;
 
 }());

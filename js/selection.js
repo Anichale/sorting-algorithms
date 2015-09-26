@@ -1,7 +1,7 @@
 //namespace
 var Sort = window.Sort || {};
 
-Sort.selection = (function() {
+Sort.Selection = (function() {
 
   /*  Searches the array to find the position of our min value, then loops again
   *   to find the next smallest value, and swaps it to our next position in the
@@ -46,8 +46,6 @@ Sort.selection = (function() {
     return array;
   }
 
-  return {
-    selectionSort : selectionSort
-  };
+  return selectionSort;
 
 }());

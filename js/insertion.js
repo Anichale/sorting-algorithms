@@ -40,8 +40,6 @@ Sort.insertion = (function() {
     return array;
   }
 
-  return {
-    insertionSort : insertionSort
-  };
+  return insertionSort;
 
 }());
