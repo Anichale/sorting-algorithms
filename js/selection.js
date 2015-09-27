@@ -11,12 +11,13 @@ Sort.Selection = (function() {
 
     //create variable to store current mininmum in loop
     var min;
+    var i = 0;
 
     //create variable used for swapping
     var prev;
 
     //loop through array to find minimum
-    for (var i = 0; i < array.length; i++) {
+    var interval = setInterval(function() {
 
       //set this position to our next minimums position
       min = i;
@@ -40,7 +41,15 @@ Sort.Selection = (function() {
         array[i] = array[min];
         array[min] = prev;
       }
-    }
+
+      Create.grid(array);
+
+      i++;
+      if (i == array.length) {
+        clearInterval(interval);
+      }
+
+    }, 70);
 
     //return our stored array
     return array;

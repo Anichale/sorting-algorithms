@@ -1,5 +1,5 @@
 var DataArray = (function() {
-  var inputNumber = 100;
+  var inputNumber = 150;
 
   var sortedArray = makeSorted(inputNumber);
 
