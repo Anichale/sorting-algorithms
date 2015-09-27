@@ -3,6 +3,7 @@ var Sort = window.Sort || {};
 
 Sort.bubble = (function() {
 
+
   /* Bubble sort works in a nature similar to its name, the lesser - or lighter - values
   *  will 'bubble' to the beginning of the array, and the heavier values will 'sink'
   *  to the bottom.
@@ -13,8 +14,7 @@ Sort.bubble = (function() {
     var swapped;
     var prev;
 
-    do {
-
+    var interval = setInterval(function() {
       //initilize our loop variable to false, so we can exit our loop
       //if our array is sorted
       swapped = false;
@@ -38,6 +38,8 @@ Sort.bubble = (function() {
 
           //flag our conditional to continue looping
           swapped = true;
+
+          Create.grid(array);
         }
 
         //if we go through the entire loop and our swapped conditional is never
@@ -45,7 +47,11 @@ Sort.bubble = (function() {
       }
 
       //and we can exit our do while loop
-    } while (swapped === true);
+      if (swapped === false) {
+        clearInterval(interval);
+      }
+
+    }, 70);
 
     //return our sorted array
     return array;

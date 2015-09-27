@@ -10,9 +10,10 @@ Sort.insertion = (function() {
 
     //initialize a variable to identify the number currently being compared
     var value;
+    var i = 0;
 
     //loop through our  array
-    for (var i = 0; i < array.length; i++) {
+    var interval = setInterval(function() {
 
       //indentify our number to be compared
       value = array[i];
@@ -34,7 +35,15 @@ Sort.insertion = (function() {
 
       //insert our value at the space that has been shifted
       array[j + 1] = value;
-    }
+
+      Create.grid(array);
+
+      i++;
+      if (i == array.length) {
+        clearInterval(interval);
+      }
+
+    }, 70);
 
     //return the sorted array
     return array;
