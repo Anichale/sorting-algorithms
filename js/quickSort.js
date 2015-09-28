@@ -46,10 +46,10 @@ Sort.quick = (function() {
       nextPivot = partition(array, pivot, low, high);
 
       //sort from low, to the pivot - 1, because nextPivot belongs where it is
-      setTimeout(quickSort, 600, array, low, nextPivot - 1);
+      setTimeout(quickSort, draw.speed(), array, low, nextPivot - 1);
 
       //sort from pivot + 1 to high
-      setTimeout(quickSort, 600, array, nextPivot + 1, high);
+      setTimeout(quickSort, draw.speed(), array, nextPivot + 1, high);
 
     }
 

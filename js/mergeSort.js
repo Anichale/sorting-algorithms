@@ -14,8 +14,7 @@ Sort.merge = (function() {
       return array;
     }
 
-    var counter = 0;
-    var prev;
+    // var prev;
 
     //pick a pivot at our the middle of our array
     var pivot = (Math.floor(array.length / 2));
@@ -29,13 +28,16 @@ Sort.merge = (function() {
     //used to merge all of our pieces back together after recursively separating the array
     function merge (left, right) {
 
+      var counter = 0;
+
       function visiSwap (arr) {
         piece = arr.shift();
-        prev = array[counter];
-        array[counter] = array[array.indexOf(piece)];
-        array[array.indexOf(piece)] = prev;
-        counter++;
-        draw.grid(array);
+
+        // prev = array[counter];
+        // array[counter] = array[array.indexOf(piece)];
+        // array[array.indexOf(piece)] = prev;
+        // counter++;
+        // draw.grid(array);
         result.push(piece);
       }
 

@@ -43,7 +43,7 @@ Sort.insertion = (function() {
         clearInterval(interval);
       }
 
-    }, 120);
+    }, draw.speed());
 
     //return the sorted array
     return array;

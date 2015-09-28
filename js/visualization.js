@@ -65,6 +65,11 @@ var draw = (function() {
 
   }
 
+  function speed () {
+    var displaySpeed = document.getElementById('speed');
+    return displaySpeed.value;
+  }
+
   function createCell (data, index) {
 
     var cell = document.createElement('div');
@@ -80,6 +85,7 @@ var draw = (function() {
   }
 
   return {
-    grid : createGrid
+    grid : createGrid,
+    speed : speed
   };
 })();

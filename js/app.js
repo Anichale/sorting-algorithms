@@ -1,6 +1,6 @@
 var cr = {
 
-  button : function createButton (action, name) {
+  button : function (action, name) {
     var button = document.createElement('button');
     button.innerHTML = name;
     button.style.margin = '10px';
@@ -8,7 +8,7 @@ var cr = {
     document.getElementById('visualizer').appendChild(button);
   },
 
-  reset : function reset () {
+  reset : function () {
     shuffledArray = DataArray.getRandomArray();
     draw.grid(shuffledArray);
   }
@@ -18,10 +18,8 @@ var cr = {
 cr.button('Sort.bubble(shuffledArray)', 'Bubble Sort');
 cr.button('Sort.insertion(shuffledArray)', 'Insertion Sort');
 cr.button('Sort.Selection(shuffledArray)', 'Selection Sort');
-cr.button('Sort.merge(shuffledArray)', 'Merge Sort');
+// cr.button('Sort.merge(shuffledArray)', 'Merge Sort');
 cr.button('Sort.quick(shuffledArray)', 'Quick Sort');
 cr.button('cr.reset()', 'Reset');
 var shuffledArray = DataArray.getRandomArray();
 draw.grid(shuffledArray);
-
-//Sort.merge(shuffledArray);

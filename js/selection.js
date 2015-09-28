@@ -49,7 +49,7 @@ Sort.Selection = (function() {
         clearInterval(interval);
       }
 
-    }, 120);
+    }, draw.speed());
 
     //return our stored array
     return array;
