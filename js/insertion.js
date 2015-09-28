@@ -36,7 +36,7 @@ Sort.insertion = (function() {
       //insert our value at the space that has been shifted
       array[j + 1] = value;
 
-      Create.grid(array);
+      draw.grid(array);
 
       i++;
       if (i == array.length) {

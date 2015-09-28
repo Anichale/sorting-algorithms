@@ -42,7 +42,7 @@ Sort.Selection = (function() {
         array[min] = prev;
       }
 
-      Create.grid(array);
+      draw.grid(array);
 
       i++;
       if (i == array.length) {

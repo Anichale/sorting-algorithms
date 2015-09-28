@@ -1,7 +1,5 @@
 var DataArray = (function() {
-  var inputNumber = 90;
-
-  var sortedArray = makeSorted(inputNumber);
+  var inputNumber = 100;
 
   function makeSorted (input) {
     var array = [];
@@ -11,9 +9,12 @@ var DataArray = (function() {
     return array;
   }
 
-  var shuffledArray = (function(array) {
+  function setLength (input) {
+    inputNumber = input;
+  }
 
-    var newArray = array;
+  function getRandomArray () {
+    var newArray = makeSorted(inputNumber);
     var currentIndex = newArray.length;
     var temporaryValue;
     var randomIndex;
@@ -31,14 +32,6 @@ var DataArray = (function() {
       newArray[randomIndex] = temporaryValue;
     }
     return newArray;
-  })(sortedArray);
-
-  function setLength (input) {
-    inputNumber = input;
-  }
-
-  function getRandomArray () {
-    return shuffledArray;
   }
 
   function getSortedArray () {
@@ -53,7 +46,7 @@ var DataArray = (function() {
 
 })();
 
-var Create = (function() {
+var draw = (function() {
 
   var container = document.querySelector('#visualizer');
 

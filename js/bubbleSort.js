@@ -39,7 +39,7 @@ Sort.bubble = (function() {
           //flag our conditional to continue looping
           swapped = true;
 
-          Create.grid(array);
+          draw.grid(array);
         }
 
         //if we go through the entire loop and our swapped conditional is never

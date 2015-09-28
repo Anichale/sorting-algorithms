@@ -14,6 +14,9 @@ Sort.merge = (function() {
       return array;
     }
 
+    var counter = 0;
+    var prev;
+
     //pick a pivot at our the middle of our array
     var pivot = (Math.floor(array.length / 2));
 
@@ -26,39 +29,39 @@ Sort.merge = (function() {
     //used to merge all of our pieces back together after recursively separating the array
     function merge (left, right) {
 
+      function visiSwap (arr) {
+        piece = arr.shift();
+        prev = array[counter];
+        array[counter] = array[array.indexOf(piece)];
+        array[array.indexOf(piece)] = prev;
+        counter++;
+        draw.grid(array);
+        result.push(piece);
+      }
+
       //initialize array to return
       var result = [];
-      var lPiece;
-      var rPiece;
+      var piece;
 
       //if both of our split arrays have items inside go through this while loop
       while (left.length > 0 && right.length > 0) {
 
         //compare the first element of each array
         if (left[0] <= right[0]) {
-          lPiece = left.shift();
-
-          //if the left array has a smaller element, push it to result
-          //and use the shift method to remove it from our left array
-          result.push(lPiece);
+          visiSwap(left);
         } else {
-          rPiece = right.shift();
-
-          //do the same if the right element is smaller
-          result.push(rPiece);
+          visiSwap(right);
         }
       }
 
       //if only our left array has an element left, push that
       while (left.length > 0) {
-        lPiece = left.shift();
-        result.push(lPiece);
+        visiSwap(left);
       }
 
       //if only our right array has an element left, push that
       while (right.length > 0) {
-        rPiece = right.shift();
-        result.push(rPiece);
+        visiSwap(right);
       }
 
       //return the sorted array
