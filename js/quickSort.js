@@ -46,10 +46,11 @@ Sort.quick = (function() {
       nextPivot = partition(array, pivot, low, high);
 
       //sort from low, to the pivot - 1, because nextPivot belongs where it is
-      quickSort(array, low, nextPivot - 1);
+      setTimeout(quickSort, 300, array, low, nextPivot - 1);
 
       //sort from pivot + 1 to high
-      quickSort(array, nextPivot + 1, high);
+      setTimeout(quickSort, 300, array, nextPivot + 1, high);
+
     }
 
     //function for creating our partitions and swapping
@@ -85,6 +86,8 @@ Sort.quick = (function() {
       //return the index for a new pivot in recursively calling quickSort
       return index;
     }
+
+    Create.grid(array);
 
     //return the sorted array
     return array;

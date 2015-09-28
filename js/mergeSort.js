@@ -28,31 +28,37 @@ Sort.merge = (function() {
 
       //initialize array to return
       var result = [];
+      var lPiece;
+      var rPiece;
 
       //if both of our split arrays have items inside go through this while loop
       while (left.length > 0 && right.length > 0) {
 
         //compare the first element of each array
         if (left[0] <= right[0]) {
+          lPiece = left.shift();
 
           //if the left array has a smaller element, push it to result
           //and use the shift method to remove it from our left array
-          result.push(left.shift());
+          result.push(lPiece);
         } else {
+          rPiece = right.shift();
 
           //do the same if the right element is smaller
-          result.push(right.shift());
+          result.push(rPiece);
         }
       }
 
       //if only our left array has an element left, push that
       while (left.length > 0) {
-        result.push(left.shift());
+        lPiece = left.shift();
+        result.push(lPiece);
       }
 
       //if only our right array has an element left, push that
       while (right.length > 0) {
-        result.push(right.shift());
+        rPiece = right.shift();
+        result.push(rPiece);
       }
 
       //return the sorted array

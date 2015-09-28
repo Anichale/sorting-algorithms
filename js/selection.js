@@ -49,7 +49,7 @@ Sort.Selection = (function() {
         clearInterval(interval);
       }
 
-    }, 70);
+    }, 120);
 
     //return our stored array
     return array;

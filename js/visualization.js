@@ -1,5 +1,5 @@
 var DataArray = (function() {
-  var inputNumber = 150;
+  var inputNumber = 90;
 
   var sortedArray = makeSorted(inputNumber);
 
@@ -76,7 +76,7 @@ var Create = (function() {
 
     var cell = document.createElement('div');
     cell.style.width = (data * 5) + 'px';
-    cell.style.height = '5px';
+    cell.style.height = '8px';
     cell.id = 'div' + index;
     data = data.toString(16);
     if (data.length < 2) {

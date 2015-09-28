@@ -5,6 +5,6 @@ var states = [];
 //Create.grid(Sort.bubble(shuffledArray));
 //Sort.bubble(shuffledArray);
 //Sort.insertion(shuffledArray);
-//Sort.merge(shuffledArray);
+Sort.merge(shuffledArray);
 //Sort.Selection(shuffledArray);
-//Sort.quickSort(shuffledArray);
+//Sort.quick(shuffledArray);

@@ -51,7 +51,7 @@ Sort.bubble = (function() {
         clearInterval(interval);
       }
 
-    }, 70);
+    }, 120);
 
     //return our sorted array
     return array;

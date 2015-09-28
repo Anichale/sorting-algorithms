@@ -43,7 +43,7 @@ Sort.insertion = (function() {
         clearInterval(interval);
       }
 
-    }, 70);
+    }, 120);
 
     //return the sorted array
     return array;
