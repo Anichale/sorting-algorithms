@@ -28,48 +28,31 @@ Sort.merge = (function() {
     //used to merge all of our pieces back together after recursively separating the array
     function merge (left, right) {
 
-      var counter = 0;
-
-      function visiSwap (arr) {
-        piece = arr.shift();
-
-        // prev = array[counter];
-        // array[counter] = array[array.indexOf(piece)];
-        // array[array.indexOf(piece)] = prev;
-        // counter++;
-        // draw.grid(array);
-        result.push(piece);
-      }
-
       //initialize array to return
       var result = [];
-      var piece;
 
       //if both of our split arrays have items inside go through this while loop
       while (left.length > 0 && right.length > 0) {
 
         //compare the first element of each array
         if (left[0] <= right[0]) {
-          visiSwap(left);
+          result.push(left.shift());
         } else {
-          visiSwap(right);
+          result.push(right.shift());
         }
       }
 
       //if only our left array has an element left, push that
       while (left.length > 0) {
-        visiSwap(left);
+        result.push(left.shift());
       }
 
       //if only our right array has an element left, push that
       while (right.length > 0) {
-        visiSwap(right);
+        result.push(right.shift());
       }
-      console.log(result);
-      console.log(array);
-      for (var i = 0; i < result.length; i++) {
-        console.log('arrayPOS', array.indexOf(result[i]));
-      }
+
+      draw.grid(result);
 
       //return the sorted array
       return result;
@@ -82,4 +65,52 @@ Sort.merge = (function() {
 
   return mergeSort;
 
+})();
+
+
+Sort.bottomUpMerge = (function() {
+
+  function bottomUpMergeSort (items) {
+    var array = [];
+
+    if (items) {
+      array = items.map(function(item) { return item;});
+    }
+
+    bottomSort(array, array.length);
+
+    return array;
+  }
+
+  function bottomMerge (items, left, right, end) {
+    var n = left;
+    var m = right;
+    var currentSort = [];
+    var j;
+
+    for (j = left; j < end; j++) {
+      if (n < right && (m >= end || items[n] < items[m])) {
+        currentSort.push(items[n]);
+        n++;
+      } else {
+        currentSort.push(items[m]);
+        m++;
+      }
+    }
+
+    currentSort.map(function(item, i) { items[left + i] = item; });
+  }
+
+  function bottomSort (items, n) {
+    var width;
+    var i;
+
+    for (width = 1; width < n; width = width * 2) {
+      for (i = 0; i < n; i + 2 * width) {
+        bottomUpMerge(items, i, Math.min(i + width, n), Math.min(i + 2 * width, n));
+      }
+    }
+  }
+
+  return bottomSort;
 })();

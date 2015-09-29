@@ -14,12 +14,11 @@ var cr = {
   }
 
 };
-
+var shuffledArray = DataArray.getRandomArray();
 cr.button('Sort.bubble(shuffledArray)', 'Bubble Sort');
 cr.button('Sort.insertion(shuffledArray)', 'Insertion Sort');
 cr.button('Sort.Selection(shuffledArray)', 'Selection Sort');
 cr.button('Sort.merge(shuffledArray)', 'Merge Sort');
 cr.button('Sort.quick(shuffledArray)', 'Quick Sort');
 cr.button('cr.reset()', 'Reset');
-var shuffledArray = DataArray.getRandomArray();
 draw.grid(shuffledArray);
