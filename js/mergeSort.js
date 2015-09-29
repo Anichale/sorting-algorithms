@@ -65,9 +65,10 @@ Sort.merge = (function() {
       while (right.length > 0) {
         visiSwap(right);
       }
-
+      console.log(result);
+      console.log(array);
       for (var i = 0; i < result.length; i++) {
-        console.log(array[array.indexOf(result[i])]);
+        console.log('arrayPOS', array.indexOf(result[i]));
       }
 
       //return the sorted array
