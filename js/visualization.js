@@ -73,8 +73,8 @@ var draw = (function() {
   function createCell (data, index) {
 
     var cell = document.createElement('div');
-    cell.style.width = (data) + '5px';
-    cell.style.height = '5px';
+    cell.style.width = data + '2px';
+    cell.style.height = '8px';
     cell.style.fontSize = '8px';
     cell.style.color = 'white';
     cell.style.padding = '5px';

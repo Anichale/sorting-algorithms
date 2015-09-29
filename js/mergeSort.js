@@ -67,8 +67,10 @@ Sort.merge = (function() {
 
 })();
 
+//bottom up method
 Sort.bottomMerge = (function() {
 
+  //main function maps original array and sorts a copy
   function bottomUpMergeSort (items) {
 
     //init an array to not mutate the original array
@@ -85,7 +87,6 @@ Sort.bottomMerge = (function() {
     //return the sorted array
     return array;
   }
-
 
   function bottomSort (items, n) {
     var width = 1;
@@ -126,7 +127,6 @@ Sort.bottomMerge = (function() {
     }
     currentSort.map(function(item, i) { items[left + i] = item; });
   }
-
 
   return bottomUpMergeSort;
 })();
