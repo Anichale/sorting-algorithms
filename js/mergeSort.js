@@ -67,24 +67,51 @@ Sort.merge = (function() {
 
 })();
 
-
-Sort.bottomUpMerge = (function() {
+Sort.bottomMerge = (function() {
 
   function bottomUpMergeSort (items) {
+
+    //init an array to not mutate the original array
     var array = [];
 
+    //map it to the array
     if (items) {
       array = items.map(function(item) { return item;});
     }
 
+    //call our sort function
     bottomSort(array, array.length);
 
+    //return the sorted array
     return array;
   }
 
+
+  function bottomSort (items, n) {
+    var width = 1;
+    var i;
+
+    var interval = setInterval(function() {
+      for (i = 0; i < n; i = i + 2 * width) {
+        bottomMerge(items, i, Math.min(i + width, n), Math.min(i + 2 * width, n));
+      }
+      draw.grid(items);
+      width = width * 2;
+      if (width >= n) {
+        clearInterval(interval);
+      }
+    }, draw.speed());
+
+  }
+
+  //takes in the original array, a left partition, right partition and the end
   function bottomMerge (items, left, right, end) {
+
+    //store variables for later use
     var n = left;
     var m = right;
+
+    //init variable to store a sorted array
     var currentSort = [];
     var j;
 
@@ -97,20 +124,9 @@ Sort.bottomUpMerge = (function() {
         m++;
       }
     }
-
     currentSort.map(function(item, i) { items[left + i] = item; });
   }
 
-  function bottomSort (items, n) {
-    var width;
-    var i;
 
-    for (width = 1; width < n; width = width * 2) {
-      for (i = 0; i < n; i + 2 * width) {
-        bottomUpMerge(items, i, Math.min(i + width, n), Math.min(i + 2 * width, n));
-      }
-    }
-  }
-
-  return bottomSort;
+  return bottomUpMergeSort;
 })();

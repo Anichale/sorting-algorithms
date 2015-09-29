@@ -18,7 +18,7 @@ var shuffledArray = DataArray.getRandomArray();
 cr.button('Sort.bubble(shuffledArray)', 'Bubble Sort');
 cr.button('Sort.insertion(shuffledArray)', 'Insertion Sort');
 cr.button('Sort.Selection(shuffledArray)', 'Selection Sort');
-cr.button('Sort.merge(shuffledArray)', 'Merge Sort');
+cr.button('Sort.bottomMerge(shuffledArray)', 'Merge Sort');
 cr.button('Sort.quick(shuffledArray)', 'Quick Sort');
 cr.button('cr.reset()', 'Reset');
 draw.grid(shuffledArray);
