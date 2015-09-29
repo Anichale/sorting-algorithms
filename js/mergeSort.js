@@ -66,6 +66,10 @@ Sort.merge = (function() {
         visiSwap(right);
       }
 
+      for (var i = 0; i < result.length; i++) {
+        console.log(array[array.indexOf(result[i])]);
+      }
+
       //return the sorted array
       return result;
     }
