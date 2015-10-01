@@ -12,7 +12,8 @@ Sort.insertion = (function() {
     var value;
     var i = 0;
 
-    //loop through our  array
+    //loop through our  array using a interval
+    //loop implementation
     var interval = setInterval(function() {
 
       //indentify our number to be compared
@@ -36,14 +37,20 @@ Sort.insertion = (function() {
       //insert our value at the space that has been shifted
       array[j + 1] = value;
 
-      draw.grid(array);
+      //draw our array as a DOM visual represenation
+      Sort.Draw.grid(array);
 
+      //increment the variable i for each loop
       i++;
+
+      //if we reach the end of the array, clear the interval
+      //and exit the loop
       if (i == array.length) {
         clearInterval(interval);
       }
 
-    }, draw.speed());
+      //draw speed set by user
+    }, Sort.Draw.speed());
 
     //return the sorted array
     return array;

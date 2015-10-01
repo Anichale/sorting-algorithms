@@ -46,9 +46,11 @@ Sort.quick = (function() {
       nextPivot = partition(array, pivot, low, high);
 
       //sort from low, to the pivot - 1, because nextPivot belongs where it is
+      //set a timeout for real-time visualization
       setTimeout(quickSort, draw.speed(), array, low, nextPivot - 1);
 
       //sort from pivot + 1 to high
+      //set a timeout for real-time visualization
       setTimeout(quickSort, draw.speed(), array, nextPivot + 1, high);
 
     }
@@ -87,7 +89,9 @@ Sort.quick = (function() {
       return index;
     }
 
-    draw.grid(array);
+    //draws our current array (through iterations of the sorting)
+    //visually using DOM manipulation
+    Sort.Draw.grid(array);
 
     //return the sorted array
     return array;

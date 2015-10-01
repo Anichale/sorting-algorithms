@@ -36,8 +36,14 @@ Sort.merge = (function() {
 
         //compare the first element of each array
         if (left[0] <= right[0]) {
+
+          //if the left element is smaller, push it
+          //to our return array
           result.push(left.shift());
         } else {
+
+          //if the right element is smaller, push it
+          //to our return array
           result.push(right.shift());
         }
       }
@@ -51,9 +57,6 @@ Sort.merge = (function() {
       while (right.length > 0) {
         result.push(right.shift());
       }
-
-      draw.grid(result);
-
       //return the sorted array
       return result;
     }
@@ -67,7 +70,11 @@ Sort.merge = (function() {
 
 })();
 
-//bottom up method
+/*bottom up method
+* visualization is next to impossible to accomplish
+* in real time using recursion. this bottom-up merge sort
+* utilizes no recursion making it easier to visualize
+*/
 Sort.bottomMerge = (function() {
 
   //main function maps original array and sorts a copy
@@ -88,6 +95,7 @@ Sort.bottomMerge = (function() {
     return array;
   }
 
+  //
   function bottomSort (items, n) {
     var width = 1;
     var i;

@@ -17,6 +17,7 @@ Sort.Selection = (function() {
     var prev;
 
     //loop through array to find minimum
+    //using an interval loop
     var interval = setInterval(function() {
 
       //set this position to our next minimums position
@@ -42,14 +43,19 @@ Sort.Selection = (function() {
         array[min] = prev;
       }
 
-      draw.grid(array);
+      //draw our grid using a DOM manipulation function
+      Sort.Draw.grid(array);
 
+      //increment for each pass through loop
       i++;
+
+      //if i reachs the end of the array, exit the loop
       if (i == array.length) {
         clearInterval(interval);
       }
 
-    }, draw.speed());
+      //draw speed determined by user
+    }, Sort.Draw.speed());
 
     //return our stored array
     return array;
