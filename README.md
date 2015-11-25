@@ -1,5 +1,10 @@
 # Sorting Algorithms
 
+![](/../gh-pages/anichale.github.io!sorting-algorithms-200x200.png)
+
+## Visualization
+
+
 ## bubble sort
 
 ### [javascript implementation](js/bubbleSort.js)
