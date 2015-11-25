@@ -1,9 +1,18 @@
 # Sorting Algorithms
 
+5 popular sorting algorithms implemented manually and visualized with DOM manipulation.
+The algorithms included are : bubble sort, merge sort, insertion sort, selection sort and quick sort. In addition to visualizations, this readme also includes high-level explanations and psuedo code for each sorting implementation, and big O worst case/ best case scenarios.
+
 ![](/../gh-pages/anichale.github.io!sorting-algorithms-200x200.png)
 
-## Visualization
+## Visualizations
 
+http://anichale.github.io/sorting-algorithms/
+
+Click on the different sorting algorithms to see visualizations for each
+different algorithm implementation. Before each sort, click on reset to
+randomize the order of the array. You are also able to adjust the speed of
+the sorting intervals at the top.
 
 ## bubble sort
 
